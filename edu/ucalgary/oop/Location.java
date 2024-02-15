@@ -1,3 +1,8 @@
+// Code seems to work
+// Might not work with test as it uses arrayLists, will update with better solution
+// will update with arraylists as used in test file
+
+
 package edu.ucalgary.oop;
 
 public class Location {
@@ -46,7 +51,6 @@ public class Location {
     public void removeOccupant(DisasterVictim victim) {
         for (int i = 0; i < occupantCount; i++) {
             if (occupants[i].equals(victim)) {
-                // Shift all elements to the left
                 System.arraycopy(occupants, i + 1, occupants, i, occupantCount - i - 1);
                 occupantCount--;
                 break;
@@ -69,7 +73,6 @@ public class Location {
     public void removeSupply(Supply supply) {
         for (int i = 0; i < supplyCount; i++) {
             if (supplies[i].equals(supply)) {
-                // Shift all elements to the left
                 System.arraycopy(supplies, i + 1, supplies, i, supplyCount - i - 1);
                 supplyCount--;
                 break;
