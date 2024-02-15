@@ -1,3 +1,10 @@
+/**
+ * @author      Phoenix Bouma 
+ * <a href="mailto:phoenix.bouma@ucalgary.ca">phoenix.bouma@ucalgary.ca</a>
+ * @version     1.1
+ * @since       1.0
+ */
+
 package edu.ucalgary.oop;
 
 public class Supply {

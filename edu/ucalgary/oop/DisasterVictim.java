@@ -1,3 +1,10 @@
+/**
+ * @author      Phoenix Bouma 
+ * <a href="mailto:phoenix.bouma@ucalgary.ca">phoenix.bouma@ucalgary.ca</a>
+ * @version     1.3
+ * @since       1.0
+ */
+
 package edu.ucalgary.oop;
 
 import java.util.regex.*;
