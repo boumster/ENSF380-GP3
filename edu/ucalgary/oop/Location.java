@@ -1,7 +1,9 @@
-// Code seems to work
-// Might not work with test as it uses arrayLists, will update with better solution
-// will update with arraylists as used in test file
-
+/**
+ * @author      Younnus Iman
+ * <a href="mailto:younnus.iman@ucalgary.ca">younnus.iman@ucalgary.ca</a>
+ * @version     1.3
+ * @since       1.0
+ */
 
 package edu.ucalgary.oop;
 
@@ -13,7 +15,7 @@ public class Location {
     private ArrayList<DisasterVictim> occupants;
     private ArrayList<Supply> supplies;
 
-    public Location(String name, String address, int occupantCapacity, int supplyCapacity) {
+    public Location(String name, String address) {
         this.name = name;
         this.address = address;
         this.occupants = new ArrayList<>();
