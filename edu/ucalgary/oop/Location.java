@@ -40,6 +40,11 @@ public class Location {
         return this.occupants;
     }
 
+    public void setOccupants(DisasterVictim[] occupants) {
+        this.occupants = occupants;
+        this.occupantCount = occupants.length;
+    }
+
     public void addOccupant(DisasterVictim victim) {
         if (occupantCount < occupants.length) {
             this.occupants[occupantCount++] = victim;
@@ -60,6 +65,11 @@ public class Location {
 
     public Supply[] getSupplies() {
         return this.supplies;
+    }
+
+    public void setSupplies(Supply[] supplies) {
+        this.supplies = supplies;
+        this.supplyCount = supplies.length;
     }
 
     public void addSupply(Supply supply) {
