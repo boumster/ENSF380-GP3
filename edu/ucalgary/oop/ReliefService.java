@@ -22,10 +22,7 @@ public class ReliefService {
     Location lastKnownLocation) throws IllegalArgumentException{
 
         Matcher match = datePattern.matcher(dateOfInquiry);
-        if(dateOfInquiry instanceof String && infoProvided instanceof String && match.matches()
-        && Inquirer instanceof Inquirer && missingPerson instanceof DisasterVictim 
-        && lastKnownLocation instanceof Location){
-
+        if(match.matches()){
             this.Inquirer = Inquirer;
             this.missingPerson = missingPerson;
             this.dateOfInquiry = dateOfInquiry;
