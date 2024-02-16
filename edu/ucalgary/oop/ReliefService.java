@@ -59,7 +59,7 @@ public class ReliefService {
         return "Inquirer: " + this.Inquirer.getFirstName() + ", Missing Person: " + this.missingPerson.getFirstName() 
         +" " + this.missingPerson.getLastName() + ", Date of Inquiry: " + this.getDateofInquiry() 
         + ", Info Provided: " + this.getInfoProvided()
-        + ", Last Known Location: " + this.getLastKnownLocation();  
+        + ", Last Known Location: " + this.getLastKnownLocation().getName();  
     }
 
     //setters
