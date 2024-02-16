@@ -45,6 +45,10 @@ public class Location {
         this.occupantCount = occupants.length;
     }
 
+    public int getOccupantCount() {
+        return this.occupantCount;
+    }
+
     public void addOccupant(DisasterVictim victim) {
         if (occupantCount < occupants.length) {
             this.occupants[occupantCount++] = victim;
