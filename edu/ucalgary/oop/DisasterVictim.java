@@ -8,7 +8,6 @@
 package edu.ucalgary.oop;
 
 import java.util.regex.*;
-import java.util.ArrayList;
 
 public class DisasterVictim {
     private String firstName;
@@ -16,10 +15,10 @@ public class DisasterVictim {
     private String dateOfBirth;
     private String comments;
     private final int ASSIGNED_SOCIAL_ID;
-    private ArrayList<MedicalRecord> medicalRecords;
-    private ArrayList<FamilyRelation> familyConnections;
+    private MedicalRecord [] medicalRecords;
+    private FamilyRelation [] familyConnections;
     private final String ENTRY_DATE;
-    private ArrayList<Supply> personalBelongings;
+    private Supply [] personalBelongings;
     private String gender;
     private static int counter = 0;
     private static final String REGEX = "\\d{4}-\\d{2}-\\d{2}";
@@ -35,9 +34,9 @@ public class DisasterVictim {
             this.firstName = firstName;
             this.counter += 1;
             this.ASSIGNED_SOCIAL_ID = counter;
-            this.personalBelongings = new ArrayList<Supply>(); // Initialize as empty array
-            this.familyConnections = new ArrayList<FamilyRelation>(); // Initialize as empty array
-            this.medicalRecords = new ArrayList<MedicalRecord>(); // Initialize as empty array
+            this.personalBelongings = new Supply[0]; // Initialize as empty array
+            this.familyConnections = new FamilyRelation[0]; // Initialize as empty array
+            this.medicalRecords = new MedicalRecord[0]; // Initialize as empty array
         }
         else{
             // Throw an exception if the date is not in the correct format
@@ -50,11 +49,11 @@ public class DisasterVictim {
     public String getLastName(){ return this.lastName; }
     public String getDateOfBirth(){ return this.dateOfBirth; }
     public String getComments(){ return this.comments; }
-    public ArrayList<MedicalRecord> getMedicalRecords(){ return this.medicalRecords; }
+    public MedicalRecord[] getMedicalRecords(){ return this.medicalRecords; }
     public String getEntryDate(){ return this.ENTRY_DATE; }
     public int getAssignedSocialID(){ return this.ASSIGNED_SOCIAL_ID; }
-    public ArrayList<Supply> getPersonalBelongings(){ return this.personalBelongings; }
-    public ArrayList<FamilyRelation> getFamilyConnections(){ return this.familyConnections; }
+    public Supply[] getPersonalBelongings(){ return this.personalBelongings; }
+    public FamilyRelation[] getFamilyConnections(){ return this.familyConnections; }
     public String getGender(){ return this.gender; }
 
     // Setters
@@ -74,30 +73,113 @@ public class DisasterVictim {
         }
     }
     public void setComments(String comments){ this.comments = comments; }
-    public void setMedicalRecords(ArrayList<MedicalRecord> medicalRecords){ this.medicalRecords = medicalRecords; }
-    public void setPersonalBelongings(ArrayList<Supply> personalBelongings){ this.personalBelongings = personalBelongings; }
-    public void setFamilyConnections(ArrayList<FamilyRelation> familyConnections){ this.familyConnections = familyConnections; }
+    public void setMedicalRecords(MedicalRecord[] medicalRecords){ this.medicalRecords = medicalRecords; }
+    public void setPersonalBelongings(Supply[] personalBelongings){ this.personalBelongings = personalBelongings; }
+    public void setFamilyConnections(FamilyRelation[] familyConnections){ this.familyConnections = familyConnections; }
     public void setGender(String gender) { this.gender = gender; }
 
     // Add and Remove
     public void addPersonalBelonging(Supply supply){
         // Add the supply to the personal belongings array
-        this.personalBelongings.add(supply);
+        // Create a new array of size + 1
+        Supply[] setter = new Supply[this.personalBelongings.length + 1];
+        // Copy the old array to the new array
+        System.arraycopy(this.personalBelongings, 0, setter, 0, this.personalBelongings.length);
+        // Add the new supply to the new array
+        if (this.personalBelongings == null){
+            setter[0] = supply;
+        } else {
+            setter[this.personalBelongings.length] = supply;
+        }
+        this.personalBelongings = setter;
     }
     public void removePersonalBelonging(Supply supply) {
             // Remove the supply from the personal belongings array
-            this.personalBelongings.remove(supply);
+            // Create a new array of size - 1
+            // Check if the personal belongings array is empty
+            if (this.personalBelongings.length == 0) {
+                System.out.println("No personal belongings to remove");
+                return;
+            }
+            Supply[] setter = new Supply[this.personalBelongings.length - 1];
+            // Index of new array
+            int j = 0;
+            boolean found = false;
+            for (int i = 0; i < this.personalBelongings.length; i++) {
+                if (this.personalBelongings[i] != supply) {
+                    if (j == setter.length) {
+                        break;
+                    }
+                    setter[j] = this.personalBelongings[i];
+                    j++;
+                } else {
+                    found = true;
+            }
+
+            if (found) {
+                // Set the new array to the personal belongings array if the supply is found
+                this.personalBelongings = setter;
+            } else {
+                System.out.println("Supply not found");
+            }
+        }
     }
     public void addFamilyConnection(FamilyRelation familyRelation){
-        // Add the family relation to the family connections array
-        this.familyConnections.add(familyRelation);
+        // Check if familyConnections is null and initialize if necessary
+        if (this.familyConnections == null) {
+            this.familyConnections = new FamilyRelation[0];
+        }
+    
+        // Create a new array of size + 1
+        FamilyRelation[] setter = new FamilyRelation[this.familyConnections.length + 1];
+    
+        // Copy the old array to the new array
+        System.arraycopy(this.familyConnections, 0, setter, 0, this.familyConnections.length);
+    
+        // Add the new family relation to the new array
+        setter[this.familyConnections.length] = familyRelation;
+    
+        // Update familyConnections to be the new array
+        this.familyConnections = setter;
     }
     public void removeFamilyConnection(FamilyRelation familyRelation){
         // Remove the family relation from the family connections array
-        this.familyConnections.remove(familyRelation);
+        // Create a new array of size - 1
+        // Check if the family connections array is empty
+        if (this.familyConnections.length == 0) {
+            System.out.println("No family connections to remove");
+            return;
+        }
+
+        FamilyRelation[] setter = new FamilyRelation[this.familyConnections.length - 1];
+        // Index of new array
+        int j = 0;
+        boolean found = false;
+        for (int i = 0; i < this.familyConnections.length; i++) {
+            if (this.familyConnections[i] != familyRelation) {
+                if (j == setter.length) {
+                    break;
+                }
+                setter[j] = this.familyConnections[i];
+                j++;
+            } else {
+                found = true;
+            }
+        }
+        if (found) {
+            // Set the new array to the family connections array if the family relation is found
+            this.familyConnections = setter;
+        } else {
+            System.out.println("Family relation not found");
+        }
     }
     public void addMedicalRecord(MedicalRecord medicalRecord){
         // Add the medical record to the medical records array
-        this.medicalRecords.add(medicalRecord);
+        // Create a new array of size + 1
+        MedicalRecord[] setter = new MedicalRecord[this.medicalRecords.length + 1];
+        // Copy the old array to the new array
+        System.arraycopy(this.medicalRecords, 0, setter, 0, this.medicalRecords.length);
+        // Add the new medical record to the new array
+        setter[this.medicalRecords.length] = medicalRecord;
     }
 }
