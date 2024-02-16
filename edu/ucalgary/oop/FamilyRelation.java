@@ -1,3 +1,10 @@
+/**
+ * @author      Younnus Iman
+ * <a href="mailto:younnus.iman@ucalgary.ca">younnus.iman@ucalgary.ca</a>
+ * @version     1.3
+ * @since       1.0
+ */
+
 package edu.ucalgary.oop;
 
 public class FamilyRelation {

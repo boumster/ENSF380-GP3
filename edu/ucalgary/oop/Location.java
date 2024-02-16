@@ -1,7 +1,9 @@
-// Code seems to work
-// Might not work with test as it uses arrayLists, will update with better solution
-// will update with arraylists as used in test file
-
+/**
+ * @author      Younnus Iman
+ * <a href="mailto:younnus.iman@ucalgary.ca">younnus.iman@ucalgary.ca</a>
+ * @version     1.3
+ * @since       1.0
+ */
 
 package edu.ucalgary.oop;
 
