@@ -63,7 +63,6 @@ public class ReliefService {
         +" " + this.missingPerson.getLastName() + ", Date of Inquiry: " + this.getDateofInquiry() 
         + ", Info Provided: " + this.getInfoProvided()
         + ", Last Known Location: " + this.getLastKnownLocation();  
-        //WHAT DOES THIS DO?!?!?
     }
 
     //setters
