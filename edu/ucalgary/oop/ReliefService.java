@@ -59,8 +59,8 @@ public class ReliefService {
     }
 
     public String getLogDetails(){
-        return "Name: " + this.Inquirer.getFirstName() + ", Missing Person: " + this.missingPerson.getFirstName() 
-        + this.missingPerson.getLastName() + ", Date of Inquiry: " + this.getDateofInquiry() 
+        return "Inquirer: " + this.Inquirer.getFirstName() + ", Missing Person: " + this.missingPerson.getFirstName() 
+        +" " + this.missingPerson.getLastName() + ", Date of Inquiry: " + this.getDateofInquiry() 
         + ", Info Provided: " + this.getInfoProvided()
         + ", Last Known Location: " + this.getLastKnownLocation();  
         //WHAT DOES THIS DO?!?!?
