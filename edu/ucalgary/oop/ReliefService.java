@@ -43,7 +43,7 @@ public class ReliefService {
         return this.missingPerson;
     }
 
-    public String getDateofInquiry(){
+    public String getDateOfInquiry(){
         return this.dateOfInquiry;
     }
 
@@ -54,12 +54,19 @@ public class ReliefService {
     public Location getLastKnownLocation(){
         return this.lastKnownLocation;
     }
-
     public String getLogDetails(){
-        return "Inquirer: " + this.Inquirer.getFirstName() + ", Missing Person: " + this.missingPerson.getFirstName() 
-        +" " + this.missingPerson.getLastName() + ", Date of Inquiry: " + this.getDateofInquiry() 
-        + ", Info Provided: " + this.getInfoProvided()
-        + ", Last Known Location: " + this.getLastKnownLocation().getName();  
+        String result;
+        if (this.missingPerson.getLastName() != null){
+            result = String.format("Inquirer: %s, Missing Person: %s %s, Date of Inquiry: %s, Info Provided: %s, Last Known Location: %s", this.Inquirer.getFirstName(),
+            this.missingPerson.getFirstName(), this.missingPerson.getLastName(), this.getDateOfInquiry(),
+            this.getInfoProvided(), this.getLastKnownLocation().getName());
+        }
+        else{
+            result = String.format("Inquirer: %s, Missing Person: %s, Date of Inquiry: %s, Info Provided: %s, Last Known Location: %s", this.Inquirer.getFirstName(),
+                this.missingPerson.getFirstName(), this.getDateOfInquiry(),
+                this.getInfoProvided(), this.getLastKnownLocation().getName());
+        }
+        return result;
     }
 
     //setters
@@ -82,7 +89,7 @@ public class ReliefService {
         
     }
 
-    public void setDateofInquiry(String dateOfInquiry) throws IllegalArgumentException{
+    public void setDateOfInquiry(String dateOfInquiry) throws IllegalArgumentException{
         Matcher match = datePattern.matcher(dateOfInquiry);
         if(match.matches() && dateOfInquiry instanceof String){
             this.dateOfInquiry = dateOfInquiry;

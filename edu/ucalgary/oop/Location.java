@@ -15,7 +15,7 @@ public class Location {
     private ArrayList<DisasterVictim> occupants;
     private ArrayList<Supply> supplies;
 
-    public Location(String name, String address, int occupantCapacity, int supplyCapacity) {
+    public Location(String name, String address) {
         this.name = name;
         this.address = address;
         this.occupants = new ArrayList<>();
