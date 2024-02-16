@@ -1,3 +1,10 @@
+/**
+ * @author      Victor Gouttin
+ * <a href="mailto:victor.gouttin@ucalgary.ca">victor.gouttin@ucalgary.ca</a>
+ * @version     1.1
+ * @since       1.0
+ */
+
 package edu.ucalgary.oop;
 
 import java.util.regex.Matcher;
