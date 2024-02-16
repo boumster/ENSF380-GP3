@@ -39,6 +39,7 @@ public class DisasterVictim {
         }
     }
 
+    // Getters
     public String getFirstName(){ return this.firstName; }
     public String getLastName(){ return this.lastName; }
     public String getDateOfBirth(){ return this.dateOfBirth; }
@@ -49,6 +50,9 @@ public class DisasterVictim {
     public Supply[] getPersonalBelongings(){ return this.personalBelongings; }
     public FamilyRelation[] getFamilyConnections(){ return this.familyConnections; }
     public String getGender(){ return this.gender; }
+
+    // Setters
+
     public void setFirstName(String firstName){ this.firstName = firstName; }
     public void setLastName(String lastName){ this.lastName = lastName; }
     public void setDateOfBirth(String dateOfBirth) throws IllegalArgumentException{
@@ -68,6 +72,8 @@ public class DisasterVictim {
     public void setPersonalBelongings(Supply[] personalBelongings){ this.personalBelongings = personalBelongings; }
     public void setFamilyConnections(FamilyRelation[] familyConnections){ this.familyConnections = familyConnections; }
     public void setGender(String gender) { this.gender = gender; }
+
+    // Add and Remove
     public void addPersonalBelonging(Supply supply){
         // Add the supply to the personal belongings array
         // Create a new array of size + 1
