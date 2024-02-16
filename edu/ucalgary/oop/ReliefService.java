@@ -18,7 +18,7 @@ public class ReliefService {
     private static final Pattern datePattern = Pattern.compile(REGEX);
 
     //constructor
-    ReliefService(Inquirer Inquirer, DisasterVictim missingPerson, String dateOfInquiry,String infoProvided, 
+    public ReliefService(Inquirer Inquirer, DisasterVictim missingPerson, String dateOfInquiry,String infoProvided, 
     Location lastKnownLocation) throws IllegalArgumentException{
 
         Matcher match = datePattern.matcher(dateOfInquiry);

@@ -15,19 +15,11 @@ public class Inquirer {
     private final String SERVICES_PHONE;
 
 
-    Inquirer(String FIRST_NAME, String LAST_NAME, String INFO, String SERVICES_PHONE) throws IllegalArgumentException {
-        if(FIRST_NAME instanceof String && LAST_NAME instanceof String && INFO instanceof String 
-        && SERVICES_PHONE instanceof String){
-            
+    public Inquirer(String FIRST_NAME, String LAST_NAME, String INFO, String SERVICES_PHONE){
             this.FIRST_NAME = FIRST_NAME;
             this.LAST_NAME = LAST_NAME;
             this.INFO = INFO;
             this.SERVICES_PHONE = SERVICES_PHONE;
-        }
-        else{
-            throw new IllegalArgumentException("Invalid Argument Passed");
-        }
-        
     }
 
     public String getFirstName() {
